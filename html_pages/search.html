@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>Bhajan Organizer</title>
+
+      <link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
+      <link rel="stylesheet" type="text/css" href="../style/search.css">
+      <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+      <script> window.$ = window.jQuery = require("jquery"); </script>
+      <script src="../semantic/dist/semantic.min.js"></script>
+      <script> $(function() {
+         $('#navbar').load("../html_pages/navbar.html");
+      });
+      </script>
+
+   </head>
+
+   <body>
+      <div id="navbar"></div>
+
+      <div class="search-holder">
+         <div class="center aligned ui segment">
+            <div>
+               <div class="ui icon header">
+                  <i class="search icon"></i>
+                  Bhajan Search
+               </div>
+               <div class="field">
+                  <div class="ui search">
+                     <div class="ui icon input">
+                        <input id="search-bar" style="width: 400px;" class="prompt" type="text" placeholder="Search Bhajans . . .">
+                        <i class="teal search icon"></i>
+                     </div>
+                  </div>
+               </div>
+               <p><br>Can't find what you're looking for? <a href="" id="search-online">Try searching online.</a></p>
+            </div>
+         </div>
+      </div>
+
+      <div class="cards-holder">
+         <div class="ui cards">
+            <div class="ui raised card">
+               <div class="content">
+                  <div class="header">Love is my Form</div>
+                  <div class="meta">Bhajan</div>
+                  <div class="description">
+                     Love is my form, Truth is my Breath, Bliss is my Food.<br>
+                     My life is my message, expansion is my life.
+                  </div>
+               </div>
+            </div>
+
+            <div class="ui raised card">
+               <div class="content">
+                  <div class="header">Bolo Bolo Sub Mil Bolo</div>
+                  <div class="meta">Bhajan</div>
+                  <div class="description">
+                     Bolo Bolo Sub Mil Bolo Om Namah Shivaya<br>
+                     Om Namah Shivaya Om Nama Shivaya<br>
+                     (Bolo ...)
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+
+   </body>
+
+   <script>
+      require('../assets/search.js');
+   </script>
+
+</html>

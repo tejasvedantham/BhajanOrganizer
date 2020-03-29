@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <title>Bhajan Organizer</title>
+
+      <link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
+      <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+      <script> window.$ = window.jQuery = require("jquery"); </script>
+      <script src="../semantic/dist/semantic.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="../style/navbar.css">
+   </head>
+
+   <body>
+      <div class="ui inverted sidebar vertical menu">
+         <div style="color:white;" class="ui horizontal divider">
+            Menu
+         </div>
+         <div class='sidebar-items'>
+            <a id="home-button" class="active item"> <i id="home-icon" class="teal home icon"></i>Welcome</a>
+            <a id="presentation-button" class="item"> <i id="presentation-icon" class="desktop icon"></i>Presentation Creator</a>
+            <a id="search-button" class="item"> <i id="search-icon" class="search icon"></i>Bhajan Search</a>
+            <a id="manage-button" class="item"> <i id="manage-icon" class="sliders horizontal icon"></i>Manage Bhajans / Singers</a>
+            <a id="help-button" class="item"> <i id="help-icon" class="question circle outline icon"></i>Help</a>
+         </div>
+         <div class="ui version">
+            <h5>Version 1.2.1<br/><br/>Created March 2020</h5>
+         </div>
+
+      </div>
+
+      <div class="pusher">
+         <div class="tiny ui teal basic animated fade button" style="margin:15px;" id="sidebar-button" tabindex="0">
+            <div class="hidden content">
+               <i class="double angle left icon"></i>
+            </div>
+            <div class="visible content">
+               <i class="bars icon"></i>
+            </div>
+         </div>
+      </div>
+
+
+      <script>
+         require('../assets/navbar.js');
+      </script>
+
+   </body>
+
+</html>
