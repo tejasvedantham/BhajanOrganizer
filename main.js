@@ -26,5 +26,6 @@ function createWindow () {
 }
 
 var bhajansDB = new DataStore({ filename: 'bhajans-master.db', autoload: true});
+var singersDB = new DataStore({ filename: 'singers-master.db', autoload: true});
 
 app.on('ready', createWindow)
