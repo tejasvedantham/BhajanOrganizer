@@ -2,12 +2,12 @@
 
 Sathya Sai Bhajans Organizer
 Author: Tejas Vedantham
-Version: 1.1.1
+Version: 1.2.1
 Created: Jan. 2020
 
 */
 
-const {app, BrowserWindow, Menu, MenuItem, ipcMain} = require('electron');
+const {app, BrowserWindow, ipcMain} = require('electron');
 const DataStore = require('nedb');
 var nodeConsole = require('console');
 var fs = require('fs');
@@ -27,5 +27,14 @@ function createWindow () {
 
 var bhajansDB = new DataStore({ filename: 'bhajans-master.db', autoload: true});
 var singersDB = new DataStore({ filename: 'singers-master.db', autoload: true});
+
+ipcMain.on('bhajan-to-search', function(event, data) {
+    myConsole.log("Search Query: " + data)
+    var regex = new RegExp(data);
+    bhajansDB.find({ title: regex}, function(err, docs) {
+        myConsole.log(docs);
+    });
+    
+});
 
 app.on('ready', createWindow)

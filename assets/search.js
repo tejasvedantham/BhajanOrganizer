@@ -13,5 +13,7 @@ newHtml = $("<div class='ui raised card'>")
       .append("<div class='description'>Sample Sample Sample</div>"));
       
 $("#search-bar").on("input", function() {
-   $(".ui.cards").append(newHtml);
+   // $(".ui.cards").append(newHtml);
+   var bhajan = $('.prompt').val();
+   ipcRenderer.send('bhajan-to-search', bhajan);
 });
