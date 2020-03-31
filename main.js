@@ -25,14 +25,18 @@ function createWindow () {
     win.loadFile('./html_pages/search.html')
 }
 
+//Load db's from memory
 var bhajansDB = new DataStore({ filename: 'bhajans-master.db', autoload: true});
 var singersDB = new DataStore({ filename: 'singers-master.db', autoload: true});
 
+
 ipcMain.on('bhajan-to-search', function(event, data) {
     myConsole.log("Search Query: " + data)
-    var regex = new RegExp(data);
-    bhajansDB.find({ title: regex}, function(err, docs) {
+    var regex = new RegExp(data, "i");
+
+    bhajansDB.find({ $or: [ {title: regex}, {lyrics: regex}] }, function(err, docs) {
         myConsole.log(docs);
+        event.sender.send('bhajans-list-found', docs);
     });
     
 });
