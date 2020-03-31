@@ -8,6 +8,8 @@ $('#search-online').click(function() {
       
 $("#search-bar").on("input", function() {
 
+   $('#bhajan-cards').empty();
+
    var bhajan = $('.prompt').val();
    
    //Only perform search if there are >3 chars in the query
@@ -16,18 +18,11 @@ $("#search-bar").on("input", function() {
    }
 
    //Send call to retrieve data from db
-   ipcRenderer.send('bhajan-to-search', bhajan);
-
-   //Call back function for db query that returns array of bhajans
-   ipcRenderer.on('bhajans-list-found', function(event, data) {
-      myConsole.log("Bhajans list returned : Length " + data.length);
-      myConsole.log(data[0]);
-      
-      for (var i = 0; i < data.length; i++) {
-         renderCard(data[i]);
-      }
-
-   });
+   const data = ipcRenderer.sendSync('bhajan-to-search', bhajan);
+   $('#bhajan-cards').empty();
+   for (var i = 0; i < data.length; i++) {
+      renderCard(data[i]);
+   }
 
 });
 

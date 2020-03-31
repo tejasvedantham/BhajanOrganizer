@@ -35,8 +35,8 @@ ipcMain.on('bhajan-to-search', function(event, data) {
     var regex = new RegExp(data, "i");
 
     bhajansDB.find({ $or: [ {title: regex}, {lyrics: regex}] }, function(err, docs) {
-        myConsole.log(docs);
-        event.sender.send('bhajans-list-found', docs);
+        event.returnValue = docs;
+        // event.sender.send('bhajans-list-found', docs);
     });
     
 });
