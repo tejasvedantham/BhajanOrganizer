@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Bhajan Organizer</title>
+
+        <link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
+        <link rel="stylesheet" type="text/css" href="../style/presentation1.css">
+        <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+        <script> window.$ = window.jQuery = require("jquery"); </script>
+        <script src="../semantic/dist/semantic.min.js"></script>
+        <script> $(function() {
+            $('#navbar').load("../html_pages/navbar.html");
+        });
+        </script>
+    </head>
+
+    <body>
+        <div id="navbar"></div>
+
+        <div class="steps-holder">
+            <div class="ui ordered three mini steps">
+                <div class="active step">
+                    <div class="content">
+                        <div class="title">Shipping</div>
+                        <div class="description">Choose your shipping options</div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="content">
+                        <div class="title">Billing</div>
+                        <div class="description">Enter billing information</div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="content">
+                        <div class="title">Confirm Order</div>
+                        <div class="description">Verify order details</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+    </body>
+</html>
