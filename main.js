@@ -22,7 +22,7 @@ function createWindow () {
         }
     })
     //Load index.html
-    win.loadFile('./html_pages/search.html')
+    win.loadFile('./html_pages/presentation.html')
 }
 
 //Load db's from memory
