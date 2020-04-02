@@ -1,0 +1,24 @@
+.steps-holder {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.next-button {
+    position: absolute;
+    /* margin-right: 15px;
+    margin-bottom: 5px; */
+    bottom: 15px;
+    right: 15px;
+}
+
+.back-button {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+}
+
+.table-holder {
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 15px;
+}

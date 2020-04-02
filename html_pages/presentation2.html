@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Bhajan Organizer</title>
+  
+        <link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
+        <link rel="stylesheet" type="text/css" href="../style/presentation2.css">
+        <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+        <script> window.$ = window.jQuery = require("jquery"); </script>
+        <script src="../semantic/dist/semantic.min.js"></script>
+    </head>
+    <body>
+
+        <div id="navbar"></div>
+
+        <div class="steps-holder">
+            <div class="ui ordered three mini steps">
+                <div class="completed step">
+                    <div class="content">
+                        <div class="title">Create New or Load</div>
+                        <div class="description">Create a new presentation or load an existing one</div>
+                    </div>
+                </div>
+                <div class="active step">
+                    <div class="content">
+                        <div class="title">Edit Presentation</div>
+                        <div class="description">Add and edit bhajans</div>
+                    </div>
+                </div>
+                <div class="disabled step">
+                    <div class="content">
+                        <div class="title">Confirm</div>
+                        <div class="description">Adjust settings and finalize</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="next-button ui teal button">Next</button>
+        <button class="back-button ui red basic button">Back</button>
+
+        <div class="table-holder">
+
+            <table class="ui selectable striped celled definition teal table">
+                <thead class="full-width">
+                    <tr>
+                        <th class="eight wide">Bhajan</th>
+                        <th class="four wide">Singer</th>
+                        <th class="two wide">Gender</th>
+                        <th class="two wide">Scale</th>
+                    </tr>
+                </thead>
+    
+                <tbody>
+                    <tr>
+                        <td>Love is my Form</td>
+                        <td>Tejas Vedantham</td>
+                        <td>Male</td>
+                        <td>E Major</td>
+                    </tr>
+                    <tr>
+                        <td>Krishna Madhava</td>
+                        <td>Sai Vasam</td>
+                        <td>Male</td>
+                        <td>F Major</td>
+                    </tr>
+                    <tr>
+                        <td>Bhajo Radhe Govinda Bhajo Shyama Gopal</td>
+                        <td>Rashmi Nakkina</td>
+                        <td>Female</td>
+                        <td>A Major</td>
+                    </tr>
+                </tbody>
+
+                <tfoot class="full-width">
+                    <tr>
+                        <th colspan="4">
+                            <div class="ui right floated small primary button">Add Bhajan</div>
+                        </th>
+                    </tr>
+                </tfoot>
+            </table>
+
+        </div>
+        
+        
+    </body>
+    <script>
+        require('../assets/presentation2.js');
+    </script>
+</html>

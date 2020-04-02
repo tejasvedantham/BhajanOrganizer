@@ -9,10 +9,6 @@
         <script src="../node_modules/jquery/dist/jquery.min.js"></script>
         <script> window.$ = window.jQuery = require("jquery"); </script>
         <script src="../semantic/dist/semantic.min.js"></script>
-        <script> $(function() {
-            $('#navbar').load("../html_pages/navbar.html");
-        });
-        </script>
     </head>
 
     <body>
@@ -22,24 +18,26 @@
             <div class="ui ordered three mini steps">
                 <div class="active step">
                     <div class="content">
-                        <div class="title">Shipping</div>
-                        <div class="description">Choose your shipping options</div>
+                        <div class="title">Create New or Load</div>
+                        <div class="description">Create a new presentation or load an existing one</div>
                     </div>
                 </div>
-                <div class="step">
+                <div class="disabled step">
                     <div class="content">
-                        <div class="title">Billing</div>
-                        <div class="description">Enter billing information</div>
+                        <div class="title">Edit Presentation</div>
+                        <div class="description">Add and edit bhajans</div>
                     </div>
                 </div>
-                <div class="step">
+                <div class="disabled step">
                     <div class="content">
-                        <div class="title">Confirm Order</div>
-                        <div class="description">Verify order details</div>
+                        <div class="title">Confirm</div>
+                        <div class="description">Adjust settings and finalize</div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <button class="next-button ui teal button">Next</button>
         
         
     </body>

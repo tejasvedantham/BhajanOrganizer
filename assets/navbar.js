@@ -9,5 +9,13 @@ $('#sidebar-button').click(function() {
     $(this).find('i').addClass('teal');
     $(this).siblings().find('i').removeClass('teal');
 
+   if ($(this).attr("id") == "home-button") {
+      $('#page-content').load("../html_pages/index.html");
+   } else if ($(this).attr("id") == "presentation-button") {
+      $('#page-content').load("../html_pages/presentation2.html");
+   } else if ($(this).attr("id") == "search-button") {
+      $('#page-content').load("../html_pages/search.html");
+   }
+
     $('.ui.sidebar').sidebar('toggle');
  });
