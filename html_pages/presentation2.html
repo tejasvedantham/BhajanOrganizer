@@ -76,17 +76,45 @@
                 <tfoot class="full-width">
                     <tr>
                         <th colspan="4">
-                            <div class="ui right floated small primary button">Add Bhajan</div>
+                            <div id="add-bhajan-button" class="ui right floated small primary button">Add Bhajan</div>
                         </th>
                     </tr>
                 </tfoot>
             </table>
 
         </div>
-        
+
+        <div class="ui modal">
+            <div class="header">Add a Bhajan</div>
+            <div class="content">
+                <form class="ui form">
+                    <div class="field">
+                        <label>Bhajan</label>
+                        <input type="text" placeholder="Bhajan">
+                    </div>
+                    <div class="two fields">
+                        <div class="field">
+                            <label>Singer</label>
+                            <input type="text" placeholder="Singer">
+                        </div>
+                        <div class="field">
+                            <label>Scale</label>
+                            <input type="text" placeholder="Scale">
+                        </div>
+                        
+                    </div>
+                </form>
+            </div>
+            <div class="actions">
+                <div class="ui negative button">Cancel</div>
+                <div class="ui positive button">OK</div>
+            </div>
+        </div>
         
     </body>
+
     <script>
         require('../assets/presentation2.js');
     </script>
+
 </html>
