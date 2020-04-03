@@ -29,16 +29,21 @@ function createWindow () {
 var bhajansDB = new DataStore({ filename: 'bhajans-master.db', autoload: true});
 var singersDB = new DataStore({ filename: 'singers-master.db', autoload: true});
 
-
 ipcMain.on('bhajan-to-search', function(event, data) {
     myConsole.log("Search Query: " + data)
     var regex = new RegExp(data, "i");
 
     bhajansDB.find({ $or: [ {title: regex}, {lyrics: regex}] }, function(err, docs) {
         event.returnValue = docs;
-        // event.sender.send('bhajans-list-found', docs);
     });
     
+});
+
+ipcMain.on('get-singers-list', function(event, data) {
+    var regex = new RegExp('[\s\S]*');
+    singersDB.find({ name: regex}, {gender: 0, _id: 0}, function(err, docs) {
+        event.returnValue = docs;
+    })
 });
 
 app.on('ready', createWindow)
