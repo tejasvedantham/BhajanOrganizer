@@ -52,7 +52,7 @@
                     </tr>
                 </thead>
     
-                <tbody>
+                <tbody id="bhajans-table">
                     <tr>
                         <td>Love is my Form</td>
                         <td>Tejas Vedantham</td>
@@ -90,27 +90,53 @@
                 <form class="ui form">
                     <div class="field">
                         <label>Bhajan</label>
-                        <input type="text" placeholder="Bhajan">
+                        <input name="bhajan-field" type="text" placeholder="Bhajan">
                     </div>
                     <div class="two fields">
-                        <div class="field">
+                        <div class="eight wide field">
                             <label>Singer</label>
-                            <select id="singers-dropdown" class="ui fluid search selection dropdown">
+                            <select name="singers-field" id="singers-dropdown" class="ui fluid search selection dropdown">
                                 <option></option>
                             </select>
                         </div>
-                        <div class="field">
+                        <div class="four wide field">
                             <label>Scale</label>
-                            <input type="text" placeholder="Scale">
+                            <select name="scale-field" class="ui fluid search selection dropdown">
+                                <option></option>
+                                <option>*</option>
+                                <option>C</option>
+                                <option>C# / D-flat</option>
+                                <option>D</option>
+                                <option>D# / E-flat</option>
+                                <option>E</option>
+                                <option>F</option>
+                                <option>F# / G-flat</option>
+                                <option>G</option>
+                                <option>G# / A-flat</option>
+                                <option>A</option>
+                                <option>A# / B-flat</option>
+                                <option>B</option>
+                            </select>
+                        </div>
+                        <div class="four wide field">
+                            <label>Scale Type</label>
+                            <select name="scaletype-field" class="ui fluid search selection dropdown">
+                                <option></option>
+                                <option>*</option>
+                                <option>Major</option>
+                                <option>Minor</option>
+                                <option>Madhyam</option>
+                            </select>
                         </div>
                         
                     </div>
+                    <div class="actions">
+                        <button type="button" class="ui negative button">Cancel</button>
+                        <button id="submit-button" type="submit" class="ui positive button">OK</button>
+                    </div>
                 </form>
             </div>
-            <div class="actions">
-                <div class="ui negative button">Cancel</div>
-                <div class="ui positive button">OK</div>
-            </div>
+            
         </div>
         
     </body>
