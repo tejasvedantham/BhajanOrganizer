@@ -20,6 +20,8 @@ $(document).ready(function() {
     })
 
     $('.ui.form').submit(function(event) {
+        event.preventDefault();
+
         myConsole.log("-----Submitted-----");
 
         var data = fs.readFileSync('current-presentation.json');
@@ -28,16 +30,39 @@ $(document).ready(function() {
         bhajanArray = objectifyForm(bhajanArray);
 
         var currData = JSON.parse(data);
-        currData.push(bhajanArray);
+        currData.bhajans.push(bhajanArray);
 
         let newData = JSON.stringify(currData, null, 2);
         fs.writeFileSync("current-presentation.json", newData);
+
+        $('#bhajans-table').empty();
+        renderBhajanEntries();
         
     });
 
     $('#next-button').click(function() {
-        
+        myConsole.log("Next button clicked");
     });
+
+    function renderBhajanEntries() {
+        $.get("../bhajan-entry-template.html", function(data) {
+
+            var bhajanData = fs.readFileSync('current-presentation.json');
+            var bhajanData = JSON.parse(bhajanData);
+
+            bhajanData.bhajans.forEach((element) => {
+                let html = $(data);
+
+                html.find('.bhajan-title').text(element.bhajanfield);
+                html.find('.singer').text(element.singersfield);
+                html.find('.gender').text("Singer gender");
+                html.find('.scale').text(element.scalefield + " " + element.scaletypefield);
+    
+                $('#bhajans-table').append(html);
+            });
+                 
+        });
+    }
 
     function objectifyForm(formArray) {
 
