@@ -45,7 +45,7 @@ $(document).ready(function() {
     });
 
     function renderBhajanEntries() {
-        $.get("../bhajan-entry-template.html", function(data) {
+        $.get("../templates/bhajan-entry-template.html", function(data) {
 
             var bhajanData = fs.readFileSync('current-presentation.json');
             var bhajanData = JSON.parse(bhajanData);
