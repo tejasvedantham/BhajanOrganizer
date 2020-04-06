@@ -4,7 +4,7 @@ $(document).ready(function() {
     var nodeConsole = require('console');
     var myConsole = new nodeConsole.Console(process.stdout, process.stderr);
     
-    const singers = ipcRenderer.sendSync('get-singers-list');
+    const singers = ipcRenderer.sendSync('get-singers-dropdown');
     const singersArray = [];
     
     singers.forEach(element => {

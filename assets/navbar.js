@@ -19,6 +19,9 @@ $(document).ready(function() {
       } else if ($(this).attr("id") == "search-button") {
          $('#page-content').html('');
          $('#page-content').load("../html_pages/search.html");
+      } else if ($(this).attr("id") == "manage-button") {
+         $('#page-content').html('');
+         $('#page-content').load("../html_pages/manage.html");
       }
    
       $('.ui.sidebar').sidebar('toggle');

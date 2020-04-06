@@ -1,28 +1,5 @@
 {
   "bhajans": [
-    {
-      "bhajanfield": "hari naam gaate chalo",
-      "singersfield": "Tejas Vedantham",
-      "scalefield": "G",
-      "scaletypefield": "Madhyam"
-    },
-    {
-      "bhajanfield": "bolo",
-      "singersfield": "Rashmi Nakkina",
-      "scalefield": "G",
-      "scaletypefield": "Madhyam"
-    },
-    {
-      "bhajanfield": "Hari Naam",
-      "singersfield": "Rashmi Nakkina",
-      "scalefield": "",
-      "scaletypefield": ""
-    },
-    {
-      "bhajanfield": "hello",
-      "singersfield": "",
-      "scalefield": "",
-      "scaletypefield": ""
-    }
+
   ]
 }

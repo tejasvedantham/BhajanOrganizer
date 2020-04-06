@@ -39,9 +39,16 @@ ipcMain.on('bhajan-to-search', function(event, data) {
     
 });
 
-ipcMain.on('get-singers-list', function(event, data) {
+ipcMain.on('get-singers-dropdown', function(event, data) {
     var regex = new RegExp('[\s\S]*');
     singersDB.find({ name: regex}, {gender: 0, _id: 0}, function(err, docs) {
+        event.returnValue = docs;
+    })
+});
+
+ipcMain.on('get-all-singers', function(event, data) {
+    var regex = new RegExp('[\s\S]*');
+    singersDB.find({name: regex}, function(err, docs) {
         event.returnValue = docs;
     })
 });

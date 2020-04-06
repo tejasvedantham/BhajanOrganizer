@@ -1,19 +1,65 @@
 <!DOCTYPE html>
 <html lang="eng">
-    <head>
-        <meta charset="UTF-8">
-        <title>Bhajan Organizer</title>
-  
-        <link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
-        <link rel="stylesheet" type="text/css" href="../style/manage.css">
-        <script src="../node_modules/jquery/dist/jquery.min.js"></script>
-        <script> window.$ = window.jQuery = require("jquery"); </script>
-        <script src="../semantic/dist/semantic.min.js"></script>
-    </head>
-    <body>
 
-    </body>
-    <script>
-        require("../assets/manage.js")
-    </script>
+<head>
+    <meta charset="UTF-8">
+    <title>Bhajan Organizer</title>
+
+    <link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="../style/manage.css">
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script> window.$ = window.jQuery = require("jquery"); </script>
+    <script src="../semantic/dist/semantic.min.js"></script>
+</head>
+
+<body>
+    <div class="main">
+        <div class="ui two column relaxed grid">
+            <div class="middle aligned row">
+                <!-- BHAJANS LIST -->
+                <div class="column">
+                    <div id="bhajans-list" class="ui very relaxed list">
+                        <div class="item">
+                            <div class="content">
+                                <div class="header">Sample Header 1</div>
+                                <div class="description">Sample Description 1</div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="content">
+                                <div class="header">Sample Header 2</div>
+                                <div class="description">Sample Description 2</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SINGERS LIST -->
+                <div class="column">
+                    <div id="singers-list" class="ui very relaxed list">
+                        <div class="item">
+                            <div class="content">
+                                <div class="header">Sample Header 1</div>
+                                <div class="description">Sample Description 1</div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="content">
+                                <div class="header">Sample Header 2</div>
+                                <div class="description">Sample Description 2</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui vertical divider">
+            OR
+        </div>
+    </div>
+</body>
+<script>
+    require("../assets/manage.js")
+</script>
+
 </html>
