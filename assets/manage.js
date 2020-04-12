@@ -6,4 +6,10 @@ $(document).ready(function() {
 
         $('.ui.bhajans.modal').modal('show');
     })
+
+    $('.ui.singers.form').submit(function(event) {
+        event.preventDefault();
+
+        $('.ui.singers.modal').modal('show');
+    });
 });

@@ -20,14 +20,17 @@
                 <label>Meaning</label>
                 <textarea rows="3" name="meaning" placeholder="Meaning"></textarea>
             </div>
-            <button class="ui button">Clear All Fields</button>
-            <button id="bhajan-button" class="ui positive button" type="submit">Add Bhajan</button>
+            <div class="actions">
+                <button type="button" class="ui button">Clear All Fields</button>
+                <button id="bhajan-button" class="ui positive button" type="submit">Add Bhajan</button>
+            </div>
+            
         </form>
     </div>
 
     <!-- Singers Here -->
     <div class="ui bottom attached tab segment" data-tab="singers">
-        <form class="ui form">
+        <form class="ui singers form">
             <h2 class="ui dividing header">Add a Singer</h2>
             <div class="field">
                 <label>Name</label>
@@ -55,24 +58,43 @@
                     </div>
                 </div>
                 <br>
-                <button class="ui button">Clear All Fields</button>
+                <button type="button" class="ui button">Clear All Fields</button>
                 <button class="ui positive button" type="submit">Add Singer</button>
 
             </div>
         </form>
     </div>
-
 </div>
+
 <div class="ui bhajans small modal">
-    <div class="header">Confirm</div>
+    <div class="header">Confirm New Bhajan</div>
     <div class="content">
-        <h4>Are you sure you would like to add this bhajan?</h4>
-        <p>This action is permanent.</p>
+        <h4>Are you sure you would like to add this bhajan? This action is permanent.</h4>
+        <br>
+        <p>Example Title</p>
+        <p>Example Bhajan</p>
+        <p>Example Meaning</p>
 
     </div>
     <div class="actions">
-        <button class="ui basic negative button">No</button>
-        <button class="ui positive button">Yes</button>
+        <button type="button" class="ui basic negative button">No</button>
+        <button id="manage-submit-button" type="submit" class="ui positive button">Yes</button>
+    </div>
+
+</div>
+
+<div class="ui singers small modal">
+    <div class="header">Confirm New Singer</div>
+    <div class="content">
+        <h4>Are you sure you would like to add this singer? This action is permanent.</h4>
+        <br>
+        <p>Example Singer</p>
+        <p>Example Gender</p>
+
+    </div>
+    <div class="actions">
+        <button type="button" class="ui basic negative button">No</button>
+        <button id="manage-submit-button" type="submit" class="ui positive button">Yes</button>
     </div>
 
 </div>
