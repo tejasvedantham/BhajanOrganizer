@@ -35,6 +35,11 @@ $(document).ready(function() {
          $('#page-content').load("../html_pages/manage.html", function() {
             $.getScript("../assets/manage.js");
          });
+      } else if ($(this).attr("id") == "help-button") {
+         $('#page-content').html('');
+         $('#page-content').load("../html_pages/help.html", function() {
+            $.getScript("../assets/help.js");
+         })
       }
    
       $('.ui.sidebar').sidebar('toggle');
