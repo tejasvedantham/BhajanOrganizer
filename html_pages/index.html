@@ -1,67 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <title>Bhajan Organizer</title>
-
-      <link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
-      <link rel="stylesheet" type="text/css" href="../style/index.css">
-      <script src="../node_modules/jquery/dist/jquery.min.js"></script>
-      <script> window.$ = window.jQuery = require("jquery"); </script>
-      <script src="../semantic/dist/semantic.min.js"></script>
-
-   </head>
-
-   <body>
-      <div id="navbar"></div>
-
-      <div class="header-holder">
-         <div class="ui segment background">
-            <h1 class="center aligned ui header">
-               Bhajan Organizer
-               <div class="ui sub header">Love all. Serve all.</div>
-            </h1>
-         </div>
+<body>
+   <div class="header-holder">
+      <div class="ui segment background">
+         <h1 class="center aligned ui header">
+            Bhajan Organizer
+            <div class="ui sub header">Love all. Serve all.</div>
+         </h1>
       </div>
+   </div>
 
-      <div class="grid-holder">
-         <div class="ui raised placeholder segment">
-            <div class="ui two column stackable center aligned grid">
-               <div class="middle aligned row">
-                  <!-- Column 1 -->
-                  <div class="column">
-                     <div class="ui icon header">
-                        <i class="play icon"></i>
-                        Create a Presentation
-                     </div>
-                     <div class="ui primary button">
-                        Create
-                     </div>
+   <div class="grid-holder">
+      <div class="ui raised placeholder segment">
+         <div class="ui two column stackable center aligned grid">
+            <div class="middle aligned row">
+               <!-- Column 1 -->
+               <div class="column">
+                  <div class="ui icon header">
+                     <i class="play icon"></i>
+                     Create a Presentation
                   </div>
-
-                  <!-- Column 2 -->
-                  <div class="column">
-                     <div class="ui icon header">
-                        <i class="search icon"></i>
-                        Search for a Bhajan
-                     </div>
-                     <div class="field">
-                        <div class="ui search">
-                           <div class="ui icon input">
-                              <input class="prompt" type="text" placeholder="Search Bhajans...">
-                              <i class="search icon"></i>
-                           </div>
-                           <div class="results"></div>
-                        </div>
-                     </div>
+                  <div class="ui primary button">
+                     Create
                   </div>
                </div>
 
+               <!-- Column 2 -->
+               <div class="column">
+                  <div class="ui icon header">
+                     <i class="search icon"></i>
+                     Search for a Bhajan
+                  </div>
+                  <div class="field">
+                     <div class="ui search">
+                        <div class="ui icon input">
+                           <input class="prompt" type="text" placeholder="Search Bhajans...">
+                           <i class="search icon"></i>
+                        </div>
+                        <div class="results"></div>
+                     </div>
+                  </div>
+               </div>
             </div>
-            <div class="ui vertical divider">
-               Or
-            </div>
+
+         </div>
+         <div class="ui vertical divider">
+            Or
          </div>
       </div>
-   </body>
-</html>
+   </div>

@@ -1,49 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <title>Bhajan Organizer</title>
-
-      <link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
-      <link rel="stylesheet" type="text/css" href="../style/search.css">
-      <script src="../node_modules/jquery/dist/jquery.min.js"></script>
-      <script> window.$ = window.jQuery = require("jquery"); </script>
-      <script src="../semantic/dist/semantic.min.js"></script>
-
-   </head>
-
-   <body>
-      <div class="search-holder">
-         <div class="center aligned ui segment">
-            <div>
-               <div class="ui icon header">
-                  <i class="search icon"></i>
-                  Bhajan Search
+<div class="search-holder">
+   <div class="center aligned ui segment">
+      <div>
+         <div class="ui icon header">
+            <i class="search icon"></i>
+            Bhajan Search
+         </div>
+         <div class="field">
+            <div class="ui search">
+               <div class="ui icon input">
+                  <input id="search-bar" style="width: 400px;" class="prompt" type="text"
+                     placeholder="Search Bhajans . . .">
+                  <i class="teal search icon"></i>
                </div>
-               <div class="field">
-                  <div class="ui search">
-                     <div class="ui icon input">
-                        <input id="search-bar" style="width: 400px;" class="prompt" type="text" placeholder="Search Bhajans . . .">
-                        <i class="teal search icon"></i>
-                     </div>
-                  </div>
-               </div>
-               <p><br>Can't find what you're looking for? <a href="" id="search-online">Try searching online.</a></p>
             </div>
          </div>
+         <p><br>Can't find what you're looking for? <a href="" id="search-online">Try searching online.</a></p>
       </div>
+   </div>
+</div>
 
-      <div class="cards-holder">
-         <div id="bhajan-cards" class="ui cards">
+<div class="cards-holder">
+   <div id="bhajan-cards" class="ui cards">
 
-         </div>
-      </div>
-
-
-   </body>
-
-   <script>
-      require('../assets/search.js');
-   </script>
-
-</html>
+   </div>
+</div>

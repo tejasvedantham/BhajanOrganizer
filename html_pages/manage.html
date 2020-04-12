@@ -1,99 +1,78 @@
-<!DOCTYPE html>
-<html lang="eng">
+<div class="main">
+    <div class="ui top attached tabular menu">
+        <a class="item active" data-tab="bhajans">Bhajans</a>
+        <a class="item" data-tab="singers">Singers</a>
+    </div>
 
-<head>
-    <meta charset="UTF-8">
-    <title>Bhajan Organizer</title>
+    <!-- Bhajans Here -->
+    <div class="ui bottom attached tab segment active" data-tab="bhajans">
+        <form class="ui bhajan form">
+            <h2 class="ui dividing header">Add a Bhajan</h2>
+            <div class="field">
+                <label>Title</label>
+                <input type="text" name="title" placeholder="Bhajan Title">
+            </div>
+            <div class="field">
+                <label>Lyrics</label>
+                <textarea name="lyrics" placeholder="Bhajan Lyrics"></textarea>
+            </div>
+            <div class="field">
+                <label>Meaning</label>
+                <textarea rows="3" name="meaning" placeholder="Meaning"></textarea>
+            </div>
+            <button class="ui button">Clear All Fields</button>
+            <button id="bhajan-button" class="ui positive button" type="submit">Add Bhajan</button>
+        </form>
+    </div>
 
-    <link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
-    <link rel="stylesheet" type="text/css" href="../style/manage.css">
-    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
-    <script> window.$ = window.jQuery = require("jquery"); </script>
-    <script src="../semantic/dist/semantic.min.js"></script>
-</head>
+    <!-- Singers Here -->
+    <div class="ui bottom attached tab segment" data-tab="singers">
+        <form class="ui form">
+            <h2 class="ui dividing header">Add a Singer</h2>
+            <div class="field">
+                <label>Name</label>
+                <input type="text" name="name" placeholder="Singer Name">
+            </div>
+            <div class="grouped fields">
+                <label for="gender">Gender</label>
 
-<body>
-    <div class="main">
-        <div class="ui top attached tabular menu">
-            <a class="item active" data-tab="bhajans">Bhajans</a>
-            <a class="item" data-tab="singers">Singers</a>
-        </div>
-
-        <!-- Bhajans Here -->
-        <div class="ui bottom attached tab segment active" data-tab="bhajans">
-            <form class="ui bhajan form">
-                <h2 class="ui dividing header">Add a Bhajan</h2>
                 <div class="field">
-                    <label>Title</label>
-                    <input type="text" name="title" placeholder="Bhajan Title">
+                    <div class="ui radio checkbox">
+                        <input type="radio" name="male" checked="" tabindex="0" class="hidden">
+                        <label>Male</label>
+                    </div>
                 </div>
                 <div class="field">
-                    <label>Lyrics</label>
-                    <textarea name="lyrics" placeholder="Bhajan Lyrics"></textarea>
+                    <div class="ui radio checkbox">
+                        <input type="radio" name="female" tabindex="0" class="hidden">
+                        <label>Female</label>
+                    </div>
                 </div>
                 <div class="field">
-                    <label>Meaning</label>
-                    <textarea rows="3" name="meaning" placeholder="Meaning"></textarea>
+                    <div class="ui radio checkbox">
+                        <input type="radio" name="other" tabindex="0" class="hidden">
+                        <label>Other</label>
+                    </div>
                 </div>
+                <br>
                 <button class="ui button">Clear All Fields</button>
-                <button id="bhajan-button" class="ui positive button" type="submit">Add Bhajan</button>
-            </form>
-        </div>
+                <button class="ui positive button" type="submit">Add Singer</button>
 
-        <!-- Singers Here -->
-        <div class="ui bottom attached tab segment" data-tab="singers">
-            <form class="ui form">
-                <h2 class="ui dividing header">Add a Singer</h2>
-                <div class="field">
-                    <label>Name</label>
-                    <input type="text" name="name" placeholder="Singer Name">
-                </div>
-                <div class="grouped fields">
-                    <label for="gender">Gender</label>
+            </div>
+        </form>
+    </div>
 
-                    <div class="field">
-                        <div class="ui radio checkbox">
-                            <input type="radio" name="male" checked="" tabindex="0" class="hidden">
-                            <label>Male</label>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <div class="ui radio checkbox">
-                            <input type="radio" name="female" tabindex="0" class="hidden">
-                            <label>Female</label>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <div class="ui radio checkbox">
-                            <input type="radio" name="other" tabindex="0" class="hidden">
-                            <label>Other</label>
-                        </div>
-                    </div>
-                    <br>
-                    <button class="ui button">Clear All Fields</button>
-                    <button class="ui positive button" type="submit">Add Singer</button>
-                        
-                </div>
-            </form>
-        </div>
+</div>
+<div class="ui bhajans small modal">
+    <div class="header">Confirm</div>
+    <div class="content">
+        <h4>Are you sure you would like to add this bhajan?</h4>
+        <p>This action is permanent.</p>
 
     </div>
-    <div class="ui bhajans small modal">
-        <div class="header">Confirm</div>
-        <div class="content">
-            <h4>Are you sure you would like to add this bhajan?</h4>
-            <p>This action is permanent.</p>
-            
-        </div>
-        <div class="actions">
-            <button class="ui basic negative button">No</button>
-            <button class="ui positive button">Yes</button>
-        </div>
-        
+    <div class="actions">
+        <button class="ui basic negative button">No</button>
+        <button class="ui positive button">Yes</button>
     </div>
-</body>
-<script>
-    require("../assets/manage.js")
-</script>
 
-</html>
+</div>

@@ -1,131 +1,107 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Bhajan Organizer</title>
-  
-        <link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
-        <link rel="stylesheet" type="text/css" href="../style/presentation2.css">
-        <script src="../node_modules/jquery/dist/jquery.min.js"></script>
-        <script> window.$ = window.jQuery = require("jquery"); </script>
-        <script src="../semantic/dist/semantic.min.js"></script>
-    </head>
-    <body>
-
-        <div id="navbar"></div>
-
-        <div class="steps-holder">
-            <div class="ui ordered three mini steps">
-                <div class="completed step">
-                    <div class="content">
-                        <div class="title">Create New or Load</div>
-                        <div class="description">Create a new presentation or load an existing one</div>
-                    </div>
-                </div>
-                <div class="active step">
-                    <div class="content">
-                        <div class="title">Edit Presentation</div>
-                        <div class="description">Add and edit bhajans</div>
-                    </div>
-                </div>
-                <div class="disabled step">
-                    <div class="content">
-                        <div class="title">Confirm</div>
-                        <div class="description">Adjust settings and finalize</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <button id="next-button" class="next-button ui teal button">Next</button>
-        <button class="back-button ui red basic button">Back</button>
-
-        <div class="table-holder">
-
-            <table class="ui selectable striped celled definition teal table">
-                <thead class="full-width">
-                    <tr>
-                        <th class="eight wide">Bhajan</th>
-                        <th class="four wide">Singer</th>
-                        <th class="two wide">Gender</th>
-                        <th class="two wide">Scale</th>
-                    </tr>
-                </thead>
-    
-                <tbody id="bhajans-table">
-                    <!-- Bhajan entries will go here -->
-                </tbody>
-
-                <tfoot class="full-width">
-                    <tr>
-                        <th colspan="4">
-                            <div id="add-bhajan-button" class="ui right floated small primary button">Add Bhajan</div>
-                        </th>
-                    </tr>
-                </tfoot>
-            </table>
-
-        </div>
-
-        <div class="ui modal">
-            <div class="header">Add a Bhajan</div>
+<div class="steps-holder">
+    <div class="ui ordered three mini steps">
+        <div class="completed step">
             <div class="content">
-                <form class="ui form">
-                    <div class="field">
-                        <label>Bhajan</label>
-                        <input name="bhajanfield" type="text" placeholder="Bhajan">
-                    </div>
-                    <div class="two fields">
-                        <div class="eight wide field">
-                            <label>Singer</label>
-                            <select name="singersfield" id="singers-dropdown" class="ui fluid search selection dropdown">
-                                <option></option>
-                            </select>
-                        </div>
-                        <div class="four wide field">
-                            <label>Scale</label>
-                            <select name="scalefield" class="ui fluid search selection dropdown">
-                                <option></option>
-                                <option>*</option>
-                                <option>C</option>
-                                <option>C# / D-flat</option>
-                                <option>D</option>
-                                <option>D# / E-flat</option>
-                                <option>E</option>
-                                <option>F</option>
-                                <option>F# / G-flat</option>
-                                <option>G</option>
-                                <option>G# / A-flat</option>
-                                <option>A</option>
-                                <option>A# / B-flat</option>
-                                <option>B</option>
-                            </select>
-                        </div>
-                        <div class="four wide field">
-                            <label>Scale Type</label>
-                            <select name="scaletypefield" class="ui fluid search selection dropdown">
-                                <option></option>
-                                <option>*</option>
-                                <option>Major</option>
-                                <option>Minor</option>
-                                <option>Madhyam</option>
-                            </select>
-                        </div>
-                        
-                    </div>
-                    <div class="actions">
-                        <button type="button" class="ui negative button">Cancel</button>
-                        <button id="submit-button" type="submit" class="ui positive button">OK</button>
-                    </div>
-                </form>
+                <div class="title">Create New or Load</div>
+                <div class="description">Create a new presentation or load an existing one</div>
             </div>
-            
         </div>
-        
-    </body>
+        <div class="active step">
+            <div class="content">
+                <div class="title">Edit Presentation</div>
+                <div class="description">Add and edit bhajans</div>
+            </div>
+        </div>
+        <div class="disabled step">
+            <div class="content">
+                <div class="title">Confirm</div>
+                <div class="description">Adjust settings and finalize</div>
+            </div>
+        </div>
+    </div>
+</div>
 
-    <script>
-        require('../assets/presentation2.js');
-    </script>
+<button id="next-button" class="next-button ui teal button">Next</button>
+<button class="back-button ui red basic button">Back</button>
 
-</html>
+<div class="table-holder">
+
+    <table class="ui selectable striped celled definition teal table">
+        <thead class="full-width">
+            <tr>
+                <th class="eight wide">Bhajan</th>
+                <th class="four wide">Singer</th>
+                <th class="two wide">Gender</th>
+                <th class="two wide">Scale</th>
+            </tr>
+        </thead>
+
+        <tbody id="bhajans-table">
+            <!-- Bhajan entries will go here -->
+        </tbody>
+
+        <tfoot class="full-width">
+            <tr>
+                <th colspan="4">
+                    <div id="add-bhajan-button" class="ui right floated small primary button">Add Bhajan</div>
+                </th>
+            </tr>
+        </tfoot>
+    </table>
+
+</div>
+
+<div class="ui modal">
+    <div class="header">Add a Bhajan</div>
+    <div class="content">
+        <form class="ui form">
+            <div class="field">
+                <label>Bhajan</label>
+                <input name="bhajanfield" type="text" placeholder="Bhajan">
+            </div>
+            <div class="two fields">
+                <div class="eight wide field">
+                    <label>Singer</label>
+                    <select name="singersfield" id="singers-dropdown" class="ui fluid search selection dropdown">
+                        <option></option>
+                    </select>
+                </div>
+                <div class="four wide field">
+                    <label>Scale</label>
+                    <select name="scalefield" class="ui fluid search selection dropdown">
+                        <option></option>
+                        <option>*</option>
+                        <option>C</option>
+                        <option>C# / D-flat</option>
+                        <option>D</option>
+                        <option>D# / E-flat</option>
+                        <option>E</option>
+                        <option>F</option>
+                        <option>F# / G-flat</option>
+                        <option>G</option>
+                        <option>G# / A-flat</option>
+                        <option>A</option>
+                        <option>A# / B-flat</option>
+                        <option>B</option>
+                    </select>
+                </div>
+                <div class="four wide field">
+                    <label>Scale Type</label>
+                    <select name="scaletypefield" class="ui fluid search selection dropdown">
+                        <option></option>
+                        <option>*</option>
+                        <option>Major</option>
+                        <option>Minor</option>
+                        <option>Madhyam</option>
+                    </select>
+                </div>
+
+            </div>
+            <div class="actions">
+                <button type="button" class="ui negative button">Cancel</button>
+                <button id="submit-button" type="submit" class="ui positive button">OK</button>
+            </div>
+        </form>
+    </div>
+
+</div>
