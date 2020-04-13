@@ -53,4 +53,10 @@ ipcMain.on('get-all-singers', function(event, data) {
     })
 });
 
+ipcMain.on('add-new-singer', function(event, data) {
+    singersDB.insert(data, function(err, newDocs) {
+        event.returnValue = 200;
+    });
+});
+
 app.on('ready', createWindow)
