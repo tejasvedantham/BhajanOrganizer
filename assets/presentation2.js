@@ -16,10 +16,10 @@ $(document).ready(function() {
     })
     
     $('#add-bhajan-button').click(function() {
-        $('.ui.modal').modal('show');
+        $('.addToPres.ui.modal').modal('show');
     })
 
-    $('.ui.form').submit(function(event) {
+    $('.addToPres.ui.form').submit(function(event) {
         event.preventDefault();
 
         myConsole.log("-----Submitted-----");

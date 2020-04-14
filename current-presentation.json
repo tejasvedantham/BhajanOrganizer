@@ -1,16 +1,1 @@
-{
-  "bhajans": [
-    {
-      "bhajanfield": "asdf",
-      "singersfield": "Rashmi Nakkina",
-      "scalefield": "C",
-      "scaletypefield": ""
-    },
-    {
-      "bhajanfield": "asdf",
-      "singersfield": "Rashmi Nakkina",
-      "scalefield": "C",
-      "scaletypefield": "Minor"
-    }
-  ]
-}
+{"bhajans":[]}

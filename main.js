@@ -13,7 +13,7 @@ var nodeConsole = require('console');
 var fs = require('fs');
 var myConsole = new nodeConsole.Console(process.stdout, process.stderr);
 
-function createWindow () {
+function createWindow() {
     // Create the browser window.
     let win = new BrowserWindow({
         fullscreen: true,
@@ -23,6 +23,15 @@ function createWindow () {
     })
     //Load index.html
     win.loadFile('./html_pages/navbar.html')
+}
+
+function closeWindow() {
+    let currentBhajans = fs.readFileSync('current-presentation.json');
+    let bhajanArray = JSON.parse(currentBhajans);
+    bhajanArray.bhajans = [];
+    let emptyFile = JSON.stringify(bhajanArray);
+    fs.writeFileSync('current-presentation.json', emptyFile);
+
 }
 
 //Load db's from memory
@@ -60,3 +69,4 @@ ipcMain.on('add-new-singer', function(event, data) {
 });
 
 app.on('ready', createWindow)
+app.on('quit', closeWindow);
