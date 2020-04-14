@@ -14,6 +14,10 @@ $(document).ready(function() {
     $('.ui.singers.form').submit(function(event) {
         event.preventDefault();
 
+        var newSingerName = $('#newSingerName').val() 
+        var newSingerGender = $('input[name=gender]:checked', '#newSingerForm').val();
+        $('#singerText').html(newSingerName);
+        $('#genderText').html(newSingerGender);
         $('.ui.singers.modal').modal('show');
     });
 
