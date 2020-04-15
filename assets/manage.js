@@ -14,22 +14,21 @@ $(document).ready(function() {
     $('.ui.singers.form').submit(function(event) {
         event.preventDefault();
 
+        $('.ui.singers.form').removeClass('error');
         var newSingerName = $('#newSingerName').val() 
         var newSingerGender = $('input[name=gender]:checked', '#newSingerForm').val();
-        $('#singerText').html(newSingerName);
-        $('#genderText').html(newSingerGender);
-        $('.ui.singers.modal').modal('show');
-    });
 
-    $('.ui.singers.modal').submit(function(event) {
-        event.preventDefault();
+        if (newSingerName === "") {
+            $('.ui.singers.form').addClass('error');
+            return;
+        }
 
         var entry = $('.ui.singers.form').serializeArray();
         var newSinger = objectifyForm(entry);
 
         const reply = ipcRenderer.sendSync('add-new-singer', newSinger);
         if (reply == 200) {
-            myConsole.log("Added new singer successfully");
+            myConsole.log("--- Added new singer to DB ---");
         }
     });
 

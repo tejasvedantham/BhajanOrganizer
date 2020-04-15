@@ -32,6 +32,10 @@
     <div class="ui bottom attached tab segment" data-tab="singers">
         <form id="newSingerForm" class="ui singers form">
             <h2 class="ui dividing header">Add a Singer</h2>
+            <div class="ui error message">
+                <div class="header">Error!</div>
+                <p>Singer must have a name.</p>
+            </div>
             <div class="field">
                 <label>Name</label>
                 <input id="newSingerName" type="text" name="name" placeholder="Singer Name">
@@ -86,15 +90,12 @@
 <div class="ui singers small modal">
     <div class="header">Confirm New Singer</div>
     <div class="content">
-        <form id="singers-modal-form" class="ui form">
-            <h4>Are you sure you would like to add this singer? This action is permanent.</h4>
-            <p id="singerText"></p>
-            <p id="genderText"></p>
-        </form>
+        <h4>Are you sure you would like to add this singer? This action is permanent.</h4>
+        <p id="singerText"></p>
+        <p id="genderText"></p>
     </div>
     <div class="actions">
-        <button type="button" class="ui basic negative button">No</button>
-        <button form="singers-modal-form" id="manage-submit-button" type="submit"
-            class="ui positive button">Yes</button>
+        <button id="manage-no-button" class="ui basic negative button">No</button>
+        <button id="manage-submit-button" class="ui positive button">Yes</button>
     </div>
 </div>

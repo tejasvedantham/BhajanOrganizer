@@ -32,6 +32,9 @@ function closeWindow() {
     let emptyFile = JSON.stringify(bhajanArray);
     fs.writeFileSync('current-presentation.json', emptyFile);
 
+    singersDB.remove({}, { multi: true }, function (err, numRemoved) {
+    });
+
 }
 
 //Load db's from memory

@@ -22,7 +22,7 @@ $(document).ready(function() {
     $('.addToPres.ui.form').submit(function(event) {
         event.preventDefault();
 
-        myConsole.log("-----Submitted-----");
+        myConsole.log("--- Added new bhajan to presentation ---");
 
         var data = fs.readFileSync('current-presentation.json');
 
