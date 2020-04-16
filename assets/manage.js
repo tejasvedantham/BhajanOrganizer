@@ -29,6 +29,12 @@ $(document).ready(function() {
         const reply = ipcRenderer.sendSync('add-new-singer', newSinger);
         if (reply == 200) {
             myConsole.log("--- Added new singer to DB ---");
+            $('.ui.singers.modal')
+                .modal('show')
+                .delay(2000)
+                .queue(function() {
+                    $(this).modal('hide').dequeue();
+                });
         }
     });
 

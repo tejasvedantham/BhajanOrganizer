@@ -6,6 +6,7 @@ $(document).ready(function() {
     
     const singers = ipcRenderer.sendSync('get-singers-dropdown');
     const singersArray = [];
+    var toRemoveList = [];
     
     singers.forEach(element => {
         singersArray.push(element.name);
@@ -57,8 +58,21 @@ $(document).ready(function() {
                 html.find('.singer').text(element.singersfield);
                 html.find('.gender').text("Singer gender");
                 html.find('.scale').text(element.scalefield + " " + element.scaletypefield);
-    
+
                 $('#bhajans-table').append(html);
+
+                // html.click(function(event) {
+                //     myConsole.log("clicked a row");
+                //     html.toggleClass('error');
+                //     event.stopPropagation();
+
+                //     $('#remove-bhajan-button').click(function() {
+                //         myConsole.log("clicked delete button");
+                //         $(html).remove();
+                //     });
+                    
+                // });
+    
             });
                  
         });
