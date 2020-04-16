@@ -1,13 +1,20 @@
 <div class="ui raised purple card">
     <div class="content">
-        <div class="header">Bhajan Title</div>
-        <div class="meta">sample</div>
-        <div class="description">Lyrics</div>
+        <div id="card-header" class="header">Bhajan Title</div>
+        <div id="card-meta"class="meta">sample</div>
+        <div id="card-description" class="description">Lyrics</div>
     </div>
     <div class="extra content">
         <div class="ui bottom attached two buttons">
-            <div class="ui basic grey button">Edit</div>
-            <div class="ui basic teal button">View</div>
+            <div id="edit-button" class="ui basic grey button">Edit</div>
+            <div id="view-button" class="ui basic teal button">View</div>
         </div>
+    </div>
+</div>
+
+<div id="modal-for-card" class="ui fullscreen modal">
+    <div id="modal-header" class="header"></div>
+    <div id="modal-content" class="content">
+        <h3 id="modal-lyrics"></h3>
     </div>
 </div>

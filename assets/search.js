@@ -33,9 +33,15 @@ $(document).ready(function() {
       $.get("../templates/bhajan-card-template.html", function(data) {
          var html = $(data);
    
-         html.find('.header').text(bhajan.title);
-         html.find('.meta').text("Bhajan");
-         html.find('.description').text(bhajan.lyrics);
+         html.find('#card-header').text(bhajan.title);
+         html.find('#card-meta').text("Bhajan");
+         html.find('#card-description').text(bhajan.lyrics);
+
+         html.find("#view-button").click(function() {
+            $('#modal-header').text(bhajan.title);
+            $('#modal-lyrics').text(bhajan.lyrics);
+            $('#modal-for-card').modal('show');
+         });
    
          $('.ui.cards').append(html);
       });
