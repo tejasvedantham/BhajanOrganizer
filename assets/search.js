@@ -38,9 +38,21 @@ $(document).ready(function() {
          html.find('#card-description').text(bhajan.lyrics);
 
          html.find("#view-button").click(function() {
-            $('#modal-header').text(bhajan.title);
-            $('#modal-lyrics').text(bhajan.lyrics);
-            $('#modal-for-card').modal('show');
+            myConsole.log("View card clicked");
+
+            $('#view-modal-header').text(bhajan.title);
+            $('#view-modal-lyrics').text(bhajan.lyrics);
+
+            $('#view-modal-for-card').modal('show');
+         });
+
+         html.find('#edit-button').click(function() {
+            myConsole.log("Edit card clicked");
+
+            $('#edit-modal-header').text(bhajan.title);
+            $('#edit-modal-lyrics').text(bhajan.lyrics);
+
+            $('#edit-modal-for-card').modal('show');
          });
    
          $('.ui.cards').append(html);
