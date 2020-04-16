@@ -6,25 +6,24 @@
     </div>
     <div class="extra content">
         <div class="ui bottom attached two buttons">
-            <div id="edit-button" class="ui basic grey button">Edit</div>
-            <div id="view-button" class="ui basic teal button">View</div>
+            <div id="edit-view-button" class="ui basic teal button">Edit / View</div>
         </div>
     </div>
 </div>
 
-<div id="view-modal-for-card" class="ui fullscreen modal" style="width: 80%; height: 80%;">
-    <div id="view-modal-header" class="header"></div>
-    <div id="view-modal-content" class="content">
-        <textarea readonly id="view-modal-lyrics" style="min-width: 100%; max-width: 100%; min-height: 40vh; font-size: 40px;"></textarea>
-    </div>
-</div>
-
-<div id="edit-modal-for-card" class="ui fullscreen modal" style="width: 70%; height: 70%;">
+<div id="modal-for-card" class="ui fullscreen modal" style="width: 70%; height: 70%;">
     <div class="header">
-        <textarea id="edit-modal-header" style="min-width: 100%; font-size: 24px;"></textarea>
+        <textarea id="modal-header" style="min-width: 100%; font-size: 24px;"></textarea>
     </div>
-    <div id="edit-modal-content" class="content">
-        <textarea id="edit-modal-lyrics" style="min-width: 100%; max-width: 100%; min-height: 40vh; font-size: 20px;"></textarea>
+    <div id="modal-content" class="content">
+        <textarea id="modal-lyrics" style="min-width: 100%; max-width: 100%; min-height: 40vh; font-size: 35px;"></textarea>
+        <textarea id="modal-meaning" style="min-width: 100%; max-width: 100%; min-height: 20vh; font-size: 20px;">Hi</textarea>
+    </div>
+    <div class="actions">
+        <div id="modal-cancel" class="ui basic black deny button">Cancel</div>
+        <div id="modal-save" class="ui positive right labeled icon button">Save
+            <i class="checkmark icon"></i>
+        </div>
     </div>
 </div>
 

@@ -71,5 +71,10 @@ ipcMain.on('add-new-singer', function(event, data) {
     });
 });
 
+ipcMain.on('update-bhajan', function(event, data) {
+    myConsole.log(data[0] + " " + data[1]);
+    event.returnValue = "hello";
+});
+
 app.on('ready', createWindow)
 app.on('quit', closeWindow);
