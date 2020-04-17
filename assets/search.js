@@ -38,16 +38,19 @@ $(document).ready(function () {
          html.find('#card-description').text(bhajan.lyrics);
 
          html.find('#edit-view-button').click(function () {
-            myConsole.log("Edit/View card clicked");
 
-            $('#modal-header').text(bhajan.title);
-            $('#modal-lyrics').text(bhajan.lyrics);
-            $('#modal-meaning').text(bhajan.meaning);
+            $('#modal-header').val(bhajan.title);
+            $('#modal-lyrics').val(bhajan.lyrics);
+            $('#modal-meaning').val(bhajan.meaning);
 
             $('#modal-for-card').modal({
                onApprove: function (e) {
-                  myConsole.log("save button clicked on card");
-                  const save_reply = ipcRenderer.sendSync('update-bhajan', [bhajan._id, bhajan.title, bhajan.lyrics, bhajan.meaning]);
+
+                  var newTitle = $(this).find('#modal-header').val();
+                  var newLyrics = $(this).find('#modal-lyrics').val();
+                  var newMeaning = $(this).find('#modal-meaning').val();
+
+                  const save_reply = ipcRenderer.sendSync('update-bhajan', [bhajan._id, newTitle, newLyrics, newMeaning]);
                },
             }).modal('show');
 

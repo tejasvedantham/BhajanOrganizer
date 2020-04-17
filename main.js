@@ -72,8 +72,11 @@ ipcMain.on('add-new-singer', function(event, data) {
 });
 
 ipcMain.on('update-bhajan', function(event, data) {
-    myConsole.log(data[0] + " " + data[1]);
-    event.returnValue = "hello";
+    bhajansDB.update({ _id: data[0] }, {$set: {title: data[1], lyrics: data[2], meaning: data[3] } }, {}, function(err, numRemoved) {
+        event.returnValue = 200;
+    });
+    event.returnValue = 200;
+    
 });
 
 app.on('ready', createWindow)
