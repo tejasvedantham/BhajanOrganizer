@@ -44,13 +44,16 @@ $(document).ready(function () {
             $('#modal-meaning').val(bhajan.meaning);
 
             $('#modal-for-card').modal({
-               onApprove: function (e) {
+               onApprove: function(e) {
 
                   var newTitle = $(this).find('#modal-header').val();
                   var newLyrics = $(this).find('#modal-lyrics').val();
                   var newMeaning = $(this).find('#modal-meaning').val();
 
                   const save_reply = ipcRenderer.sendSync('update-bhajan', [bhajan._id, newTitle, newLyrics, newMeaning]);
+                  if (save_reply == 200) {
+                     location.reload();
+                  }
                },
             }).modal('show');
 

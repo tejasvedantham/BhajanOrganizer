@@ -8,17 +8,21 @@
     <div class="ui bottom attached tab segment active" data-tab="bhajans">
         <form class="ui bhajan form">
             <h2 class="ui dividing header">Add a Bhajan</h2>
+            <div id="bhajan-error-message" class="ui error message">
+                <div class="header">Error!</div>
+                <p>All fields must have a value.</p>
+            </div>
             <div class="field">
                 <label>Title</label>
-                <input type="text" name="title" placeholder="Bhajan Title">
+                <input id="newBhajanTitle" type="text" name="title" placeholder="Bhajan Title">
             </div>
             <div class="field">
                 <label>Lyrics</label>
-                <textarea name="lyrics" placeholder="Bhajan Lyrics"></textarea>
+                <textarea id="newBhajanLyrics" name="lyrics" placeholder="Bhajan Lyrics"></textarea>
             </div>
             <div class="field">
                 <label>Meaning</label>
-                <textarea rows="3" name="meaning" placeholder="Meaning"></textarea>
+                <textarea id="newBhajanMeaning" rows="3" name="meaning" placeholder="Meaning"></textarea>
             </div>
             <div class="actions">
                 <button type="button" class="ui button">Clear All Fields</button>
@@ -32,7 +36,7 @@
     <div class="ui bottom attached tab segment" data-tab="singers">
         <form id="newSingerForm" class="ui singers form">
             <h2 class="ui dividing header">Add a Singer</h2>
-            <div class="ui error message">
+            <div id="singer-error-message" class="ui error message">
                 <div class="header">Error!</div>
                 <p>Singer must have a name.</p>
             </div>
@@ -75,14 +79,14 @@
     <div class="content">
         <h4>Are you sure you would like to add this bhajan? This action is permanent.</h4>
         <br>
-        <p>Example Title</p>
-        <p>Example Bhajan</p>
-        <p>Example Meaning</p>
+        <p id="manage-modal-title"></p>
+        <p id="manage-modal-lyrics"></p>
+        <p id="manage-modal-meaning"></p>
 
     </div>
     <div class="actions">
-        <button type="button" class="ui basic negative button">No</button>
-        <button id="manage-submit-button" type="submit" class="ui positive button">Yes</button>
+        <button class="ui basic negative button">No</button>
+        <button id="manage-submit-button" class="ui positive button">Yes</button>
     </div>
 
 </div>
