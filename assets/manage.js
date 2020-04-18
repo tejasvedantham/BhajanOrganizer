@@ -21,17 +21,16 @@ $(document).ready(function () {
         var newBhajan = $('.ui.bhajan.form').serializeArray();
         var newBhajan = objectifyForm(newBhajan);
 
-        $('#manage-modal-title').text(newBhajan.title);
-        $('#manage-modal-lyrics').text(newBhajan.lyrics);
-        $('#manage-modal-meaning').text(newBhajan.meaning);
-
         $('.ui.bhajans.modal').modal({
+            closable: false, 
+            onShow: function (e) {
+                $('#manage-modal-title').text(newBhajan.title);
+                $('#manage-modal-lyrics').text(newBhajan.lyrics);
+                $('#manage-modal-meaning').text(newBhajan.meaning);
+            }, 
             onApprove: function (e) {
                 const bhajan_reply = ipcRenderer.sendSync('add-new-bhajan', newBhajan);
-                if (bhajan_reply == 200) {
-                    myConsole.log("New Bhajan added successfully!");
-                }
-            },
+            }
         }).modal('show');
     })
 
@@ -47,19 +46,19 @@ $(document).ready(function () {
             return;
         }
 
-        var entry = $('.ui.singers.form').serializeArray();
-        var newSinger = objectifyForm(entry);
+        var newSinger = $('.ui.singers.form').serializeArray();
+        var newSinger = objectifyForm(newSinger);
 
-        const singer_reply = ipcRenderer.sendSync('add-new-singer', newSinger);
-        if (singer_reply == 200) {
-            myConsole.log("--- Added new singer to DB ---");
-            $('.ui.singers.modal')
-                .modal('show')
-                .delay(2000)
-                .queue(function () {
-                    $(this).modal('hide').dequeue();
-                });
-        }
+        $('.ui.singers.modal').modal({
+            closable: false,
+            onShow: function (e) {
+                $('#manage-modal-singername').text(newSinger.name);
+                $('#manage-modal-singergender').text(newSinger.gender);
+            },
+            onApprove: function (e) {
+                const singer_reply = ipcRenderer.sendSync('add-new-singer', newSinger);
+            }
+        }).modal('show');
     });
 
     function objectifyForm(formArray) {
