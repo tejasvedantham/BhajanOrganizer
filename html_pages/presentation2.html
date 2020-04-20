@@ -22,7 +22,7 @@
 </div>
 
 <button id="next-button" class="next-button ui teal button">Next</button>
-<button class="back-button ui red basic button">Back</button>
+<button id="back-button" class="back-button ui red basic button">Back</button>
 
 <div class="table-holder">
 
@@ -52,10 +52,10 @@
 
 </div>
 
-<div class="addToPres ui modal">
+<div id="add-bhajan-pres" class="ui modal">
     <div class="header">Add a Bhajan</div>
     <div class="content">
-        <form class="addToPres ui form">
+        <form id="addToPres-form" class="ui form">
             <div class="field">
                 <label>Bhajan</label>
                 <input name="bhajanfield" type="text" placeholder="Bhajan">
@@ -100,7 +100,7 @@
             </div>
             <div class="actions">
                 <button type="button" class="ui negative button">Cancel</button>
-                <button id="presentation-submit-button" type="submit" class="ui positive button">OK</button>
+                <button type="button" class="ui positive button">OK</button>
             </div>
         </form>
     </div>

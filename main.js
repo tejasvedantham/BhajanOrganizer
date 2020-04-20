@@ -28,12 +28,14 @@ function createWindow() {
 function closeWindow() {
     singersDB.remove({}, { multi: true }, function (err, numRemoved) {
     });
+    currPresDB.remove({}, { multi: true }, function (err, numRemoved) {
+    });
 }
 
 //Load db's from memory
 var bhajansDB = new DataStore({ filename: 'bhajans-master.db', autoload: true });
 var singersDB = new DataStore({ filename: 'singers-master.db', autoload: true });
-var currentPresentationDB = new DataStore({ filename: 'current-presentation.db', autoload: true});
+var currPresDB = new DataStore({ filename: 'current-presentation.db', autoload: true});
 
 ipcMain.on('bhajan-to-search', function (event, data) {
     myConsole.log("Search Query: " + data)
@@ -79,7 +81,7 @@ ipcMain.on('add-new-bhajan', function (event, data) {
 });
 
 ipcMain.on('add-bhajan-to-pres', function (event, data) {
-    currentPresentationDB.insert(data, function (err, newDocs) {
+    currPresDB.insert(data, function (err, newDocs) {
         event.returnValue = 200;
     });
 })

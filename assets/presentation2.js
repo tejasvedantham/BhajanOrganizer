@@ -16,42 +16,19 @@ $(document).ready(function() {
     })
     
     $('#add-bhajan-button').click(function() {
-        $('.addToPres.ui.modal').modal('show');
+        $('#add-bhajan-pres').modal({
+            onApprove: function (e) {
+                var bhajanToAdd = $('#addToPres-form').serializeArray();
+                var bhajanToAdd = objectifyForm(bhajanToAdd);
+
+                const reply = ipcRenderer.sendSync('add-bhajan-to-pres', bhajanToAdd);
+            }
+        }).modal('show');
     })
-
-    $('.addToPres.ui.form').submit(function(event) {
-        event.preventDefault();
-
-        var bhajanArray = $('.addToPres.ui.form').serializeArray();
-        var bhajanArray = objectifyForm(bhajanArray);
-
-        const reply = ipcRenderer.sendSync('add-bhajan-to-pres', bhajanArray);
-    });
 
     $('#next-button').click(function() {
         myConsole.log("Next button clicked");
     });
-
-    function renderBhajanEntries() {
-        $.get("../templates/bhajan-entry-template.html", function(data) {
-
-            var bhajanData = fs.readFileSync('current-presentation.json');
-            var bhajanData = JSON.parse(bhajanData);
-
-            bhajanData.bhajans.forEach((element) => {
-                let html = $(data);
-
-                html.find('.bhajan-title').text(element.bhajanfield);
-                html.find('.singer').text(element.singersfield);
-                html.find('.gender').text("Singer gender");
-                html.find('.scale').text(element.scalefield + " " + element.scaletypefield);
-
-                $('#bhajans-table').append(html);
-    
-            });
-                 
-        });
-    }
 
     function objectifyForm(formArray) {
 
