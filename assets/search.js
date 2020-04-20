@@ -30,7 +30,7 @@ $(document).ready(function () {
    function renderCard(bhajan) {
 
       //Modify bhajan card template
-      $.get("../templates/bhajan-card-template.html", function (data) {
+      $.get("../templates/bhajan_card_template.html", function (data) {
          var html = $(data);
 
          html.find('#card-header').text(bhajan.title);
