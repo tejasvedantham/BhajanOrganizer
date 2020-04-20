@@ -6,7 +6,6 @@ $(document).ready(function() {
     
     const singers = ipcRenderer.sendSync('get-singers-dropdown');
     const singersArray = [];
-    var toRemoveList = [];
     
     singers.forEach(element => {
         singersArray.push(element.name);
@@ -23,22 +22,10 @@ $(document).ready(function() {
     $('.addToPres.ui.form').submit(function(event) {
         event.preventDefault();
 
-        myConsole.log("--- Added new bhajan to presentation ---");
+        var bhajanArray = $('.addToPres.ui.form').serializeArray();
+        var bhajanArray = objectifyForm(bhajanArray);
 
-        var data = fs.readFileSync('current-presentation.json');
-
-        var bhajanArray = $('.ui.form').serializeArray();
-        bhajanArray = objectifyForm(bhajanArray);
-
-        var currData = JSON.parse(data);
-        currData.bhajans.push(bhajanArray);
-
-        let newData = JSON.stringify(currData, null, 2);
-        fs.writeFileSync("current-presentation.json", newData);
-
-        $('#bhajans-table').empty();
-        renderBhajanEntries();
-        
+        const reply = ipcRenderer.sendSync('add-bhajan-to-pres', bhajanArray);
     });
 
     $('#next-button').click(function() {
@@ -60,18 +47,6 @@ $(document).ready(function() {
                 html.find('.scale').text(element.scalefield + " " + element.scaletypefield);
 
                 $('#bhajans-table').append(html);
-
-                // html.click(function(event) {
-                //     myConsole.log("clicked a row");
-                //     html.toggleClass('error');
-                //     event.stopPropagation();
-
-                //     $('#remove-bhajan-button').click(function() {
-                //         myConsole.log("clicked delete button");
-                //         $(html).remove();
-                //     });
-                    
-                // });
     
             });
                  
