@@ -22,24 +22,18 @@ function createWindow() {
         }
     })
     //Load index.html
-    win.loadFile('./html_pages/navbar.html')
+    win.loadFile('./html_pages/navbar.html');
 }
 
 function closeWindow() {
-    let currentBhajans = fs.readFileSync('current-presentation.json');
-    let bhajanArray = JSON.parse(currentBhajans);
-    bhajanArray.bhajans = [];
-    let emptyFile = JSON.stringify(bhajanArray);
-    fs.writeFileSync('current-presentation.json', emptyFile);
-
     singersDB.remove({}, { multi: true }, function (err, numRemoved) {
     });
-
 }
 
 //Load db's from memory
 var bhajansDB = new DataStore({ filename: 'bhajans-master.db', autoload: true });
 var singersDB = new DataStore({ filename: 'singers-master.db', autoload: true });
+var currentPresentationDB = new DataStore({ filename: 'current-presentation.db', autoload: true});
 
 ipcMain.on('bhajan-to-search', function (event, data) {
     myConsole.log("Search Query: " + data)
@@ -83,6 +77,12 @@ ipcMain.on('add-new-bhajan', function (event, data) {
         event.returnValue = 200;
     });
 });
+
+ipcMain.on('add-bhajan-to-pres', function (event, data) {
+    currentPresentationDB.insert(data, function (err, newDocs) {
+        event.returnValue = 200;
+    });
+})
 
 app.on('ready', createWindow)
 app.on('quit', closeWindow);

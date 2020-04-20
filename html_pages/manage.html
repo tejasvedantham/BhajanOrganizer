@@ -6,7 +6,7 @@
 
     <!-- Bhajans Here -->
     <div class="ui bottom attached tab segment active" data-tab="bhajans">
-        <form class="ui bhajan form">
+        <form id="newBhajanForm" class="ui bhajan form">
             <h2 class="ui dividing header">Add a Bhajan</h2>
             <div id="bhajan-error-message" class="ui error message">
                 <div class="header">Error!</div>
@@ -74,7 +74,7 @@
     </div>
 </div>
 
-<div class="ui bhajans small modal">
+<div id="confirm-bhajan-modal" class="ui bhajans small modal">
     <div class="header">Confirm New Bhajan</div>
     <div class="content">
         <h4>Are you sure you would like to add this bhajan? This action is permanent.</h4>
@@ -91,7 +91,7 @@
 
 </div>
 
-<div class="ui singers tiny modal">
+<div id="confirm-singer-modal" class="ui singers tiny modal">
     <div class="header">Confirm New Singer</div>
     <div class="content">
         <h4>Are you sure you would like to add this singer? This action is permanent.</h4>
@@ -101,6 +101,6 @@
     </div>
     <div class="actions">
         <button class="ui basic negative button">No</button>
-        <button id="manage-submit-button" class="ui positive button">Yes</button>
+        <button class="ui positive button">Yes</button>
     </div>
 </div>
