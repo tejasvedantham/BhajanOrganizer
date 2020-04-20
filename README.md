@@ -20,4 +20,5 @@ Use the Bhajan Search to lookup bhajans in your database or to view/edit them in
 ## Manage Singers/Bhajans
 Use the Manage functionality to add new singers and new bhajans to your database.
 Singers must have a name and a gender associated with them. 
-Bhajans must have a title, lyrics, and meaning. **Please include the first line in both the title and lyrics fields.**
+Bhajans must have a title, lyrics, and meaning. 
+**Please include the first line in both the title and lyrics fields.**
