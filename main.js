@@ -47,16 +47,20 @@ ipcMain.on('bhajan-to-search', function (event, data) {
 
 });
 
+ipcMain.on('get-all-bhajans', function (event, data) {
+    bhajansDB.find({}, function (err, docs) {
+        event.returnValue = docs;
+    })
+});
+
 ipcMain.on('get-singers-dropdown', function (event, data) {
-    var regex = new RegExp('[\s\S]*');
-    singersDB.find({ name: regex }, { gender: 0, _id: 0 }, function (err, docs) {
+    singersDB.find({}, { gender: 0, _id: 0 }, function (err, docs) {
         event.returnValue = docs;
     })
 });
 
 ipcMain.on('get-all-singers', function (event, data) {
-    var regex = new RegExp('[\s\S]*');
-    singersDB.find({ name: regex }, function (err, docs) {
+    singersDB.find({}, function (err, docs) {
         event.returnValue = docs;
     })
 });

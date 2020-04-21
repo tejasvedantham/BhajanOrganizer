@@ -52,49 +52,70 @@
 
 </div>
 
-<div id="add-bhajan-pres" class="ui modal">
+<div id="add-bhajan-pres" class="ui large modal">
     <div class="header">Add a Bhajan</div>
     <div class="content">
         <form id="addToPres-form" class="ui form">
             <div class="field">
                 <label>Bhajan</label>
-                <input name="bhajanfield" type="text" placeholder="Bhajan">
+                <div id="bhajan-dropdown" class="ui search selection scrolling dropdown">
+                    <input type="hidden" name="bhajanfield">
+                    <i class="teal dropdown icon"></i>
+                    <div class="default text">Bhajan</div>
+                    <div id="bhajan-names" class="menu">
+                    </div>
+                </div>
             </div>
             <div class="two fields">
                 <div class="eight wide field">
                     <label>Singer</label>
-                    <select name="singersfield" id="singers-dropdown" class="ui fluid search selection dropdown">
-                        <option></option>
-                    </select>
+                    <div id="singers-dropdown" class="ui search selection scrolling dropdown">
+                        <input type="hidden" name="singersfield">
+                        <i class="teal dropdown icon"></i>
+                        <div class="default text">Singer</div>
+                        <div id="singers-names" class="menu">
+                            <div class="item">***</div>
+                        </div>
+                    </div>
                 </div>
                 <div class="four wide field">
                     <label>Scale</label>
-                    <select name="scalefield" class="ui fluid search selection dropdown">
-                        <option></option>
-                        <option>*</option>
-                        <option>C</option>
-                        <option>C# / D-flat</option>
-                        <option>D</option>
-                        <option>D# / E-flat</option>
-                        <option>E</option>
-                        <option>F</option>
-                        <option>F# / G-flat</option>
-                        <option>G</option>
-                        <option>G# / A-flat</option>
-                        <option>A</option>
-                        <option>A# / B-flat</option>
-                        <option>B</option>
-                    </select>
+                    <div id="scale-dropdown" class="ui search selection scrolling dropdown">
+                        <input type="hidden" name="scalefield">
+                        <i class="teal dropdown icon"></i>
+                        <div class="default text">Scale</div>
+                        <div id="scale-names" class="menu">
+                            <div class="item"> </div>
+                            <div class="item">*</div>
+                            <div class="item">C</div>
+                            <div class="item">C# / Dflat</div>
+                            <div class="item">D</div>
+                            <div class="item">D# / Eflat</div>
+                            <div class="item">E</div>
+                            <div class="item">F</div>
+                            <div class="item">F# / Gflat</div>
+                            <div class="item">G</div>
+                            <div class="item">G# / Aflat</div>
+                            <div class="item">A</div>
+                            <div class="item">A# / Bflat</div>
+                            <div class="item">B</div>
+                        </div>
+                    </div>
                 </div>
                 <div class="four wide field">
                     <label>Scale Type</label>
-                    <select name="scaletypefield" class="ui fluid search selection dropdown">
-                        <option></option>
-                        <option>*</option>
-                        <option>Major</option>
-                        <option>Minor</option>
-                        <option>Madhyam</option>
-                    </select>
+                    <div id="scaletype-dropdown" class="ui search selection scrolling dropdown">
+                        <input type="hidden" name="scaletypefield">
+                        <i class="teal dropdown icon"></i>
+                        <div class="default text">Scale Type</div>
+                        <div id="scaletype-names" class="menu">
+                            <div class="item"> </div>
+                            <div class="item">Major</div>
+                            <div class="item">Minor</div>
+                            <div class="item">Madhyam</div>
+                            <div class="item">*</div>
+                        </div>
+                    </div>
                 </div>
 
             </div>
