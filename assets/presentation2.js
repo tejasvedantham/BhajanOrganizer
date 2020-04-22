@@ -5,14 +5,30 @@ $(document).ready(function() {
     var myConsole = new nodeConsole.Console(process.stdout, process.stderr);
     
     const singers = ipcRenderer.sendSync('get-singers-dropdown');
+    const bhajans = ipcRenderer.sendSync('get-bhajans-dropdown');
     const singersArray = [];
+    const bhajansArray = [];
+    var selectedBhajanID;
+
+    singers.forEach(element => {
+        singersArray.push(element.name);
+    });
+    $.each(singersArray, function(i, p) {
+        $('#singers-names').append($('<div class="item"></div>').val(p).html(p));
+    })
+    bhajans.forEach(element => {
+        bhajansArray.push({title: element.title, lyrics: element.lyrics, id: element._id});
+    });
+    $.each(bhajansArray, function (i, p) {
+        $('#bhajan-names').append($('<div style="white-space: pre-line" class="item"></div>').val(p.id).html(p.title + "\r\n" + p.lyrics));
+    });
 
     $('#bhajan-dropdown').dropdown({
         clearable: true,
         minCharacters: 3,
         onChange: function(value, text, $selectedItem) {
             $('#bhajan-dropdown').removeClass('error');
-            const bhajan_reply = ipcRenderer.sendSync('get-all-bhajans');
+            selectedBhajanID = $selectedItem[0].value;
         }
     });
     $('#singers-dropdown').dropdown({
@@ -29,23 +45,15 @@ $(document).ready(function() {
         clearable: true
     });
     
-    singers.forEach(element => {
-        singersArray.push(element.name);
-    });
-    
-    $.each(singersArray, function(i, p) {
-        $('#singers-names').append($('<div class="item"></div>').val(p).html(p));
-    })
-    
     $('#add-bhajan-button').click(function() {
         $('#add-bhajan-pres').modal({
             closable: false,
             onApprove: function (e) {
-                if ($('#bhajan-dropdown').find(":selected").text() === "") {
+                if ($('#bhajan-dropdown').dropdown('get value') === "") {
                     $('#bhajan-dropdown').addClass('error');
                     return false;
                 }
-                if ($('#singers-dropdown').find(":selected").text() === "") {
+                if ($('#singers-dropdown').dropdown('get value') === "") {
                     $('#singers-dropdown').addClass('error');
                     return false;
                 }

@@ -47,7 +47,7 @@ ipcMain.on('bhajan-to-search', function (event, data) {
 
 });
 
-ipcMain.on('get-all-bhajans', function (event, data) {
+ipcMain.on('get-bhajans-dropdown', function (event, data) {
     bhajansDB.find({}, function (err, docs) {
         event.returnValue = docs;
     })
