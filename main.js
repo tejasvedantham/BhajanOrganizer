@@ -26,8 +26,6 @@ function createWindow() {
 }
 
 function closeWindow() {
-    singersDB.remove({}, { multi: true }, function (err, numRemoved) {
-    });
     currPresDB.remove({}, { multi: true }, function (err, numRemoved) {
     });
 }
