@@ -20,8 +20,8 @@ $(document).ready(function() {
 
       } else if ($(this).attr("id") == "presentation-button") {
          $('#page-content').html('');
-         $('#page-content').load("../html_pages/presentation2.html", function() {
-            $.getScript("../assets/presentation2.js");
+         $('#page-content').load("../html_pages/presentation1.html", function() {
+            $.getScript("../assets/presentation1.js");
          });
 
       } else if ($(this).attr("id") == "search-button") {

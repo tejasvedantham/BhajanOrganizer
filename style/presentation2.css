@@ -3,15 +3,13 @@
     margin-right: 15px;
 }
 
-.next-button {
+.next-button2 {
     position: absolute;
-    /* margin-right: 15px;
-    margin-bottom: 5px; */
     bottom: 15px;
     right: 15px;
 }
 
-.back-button {
+.back-button2 {
     position: absolute;
     bottom: 15px;
     left: 15px;

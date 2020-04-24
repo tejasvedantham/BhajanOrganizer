@@ -1,6 +1,5 @@
 $(document).ready(function() {
     const { ipcRenderer } = require('electron');
-    const fs = require('fs');
     var nodeConsole = require('console');
     var myConsole = new nodeConsole.Console(process.stdout, process.stderr);
     
@@ -13,7 +12,7 @@ $(document).ready(function() {
         singersArray.push({name: element.name, value: element.name});
     });
     bhajans.forEach(element => {
-        bhajansArray.push({name: element.title + "\\n" + element.lyrics, value: element._id});
+        bhajansArray.push({name: element.title + element.lyrics, value: element._id});
     });
 
     $('#bhajan-dropdown').dropdown({
@@ -41,8 +40,16 @@ $(document).ready(function() {
         }).modal('show');
     })
 
+    $('#back-button').click(function() {
+        $('#page-content').load("../html_pages/presentation1.html", function() {
+            $.getScript("../assets/presentation1.js");
+        });
+    });
+
     $('#next-button').click(function() {
-        myConsole.log("Next button clicked");
+        $('#page-content').load("../html_pages/presentation3.html", function() {
+            $.getScript("../assets/presentation3.js");
+        });
     });
 
     function objectifyForm(formArray) {
@@ -54,8 +61,3 @@ $(document).ready(function() {
         return returnArray;
     }
 });
-
-
-
-
-
