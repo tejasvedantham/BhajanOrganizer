@@ -3,12 +3,6 @@ $(document).ready(function() {
     const { dialog } = require('electron').remote;
     var nodeConsole = require('console');
     var myConsole = new nodeConsole.Console(process.stdout, process.stderr);
-    
-    $('#next-button').click(function() {
-        $('#page-content').load("../html_pages/presentation2.html", function() {
-            $.getScript("../assets/presentation2.js");
-        });
-    });
 
     $('#create-button').click(function() {
         $('#page-content').load("../html_pages/presentation2.html", function() {
