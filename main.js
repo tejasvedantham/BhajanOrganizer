@@ -7,7 +7,7 @@ Created: Jan. 2020
 
 */
 
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, BrowserWindow, ipcMain, dialog } = require('electron');
 const DataStore = require('nedb');
 var nodeConsole = require('console');
 var fs = require('fs');
@@ -86,6 +86,19 @@ ipcMain.on('add-bhajan-to-pres', function (event, data) {
     currPresDB.insert(data, function (err, newDocs) {
         event.returnValue = 200;
     });
+})
+
+ipcMain.on('open-presentation', function(event, data) {
+    dialog.showOpenDialog({
+        properties: ['openFile']
+    }).then(result => {
+        myConsole.log(result.canceled);
+        myConsole.log(result.filePaths);
+        event.returnValue = "Success";
+    }).catch(err => {
+        myConsole.log(err);
+        event.returnValue = "Failed!";
+    })
 })
 
 app.on('ready', createWindow)

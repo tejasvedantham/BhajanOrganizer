@@ -1,6 +1,5 @@
 $(document).ready(function() {
     const { ipcRenderer } = require('electron');
-    const { dialog } = require('electron').remote;
     var nodeConsole = require('console');
     var myConsole = new nodeConsole.Console(process.stdout, process.stderr);
 
@@ -11,13 +10,7 @@ $(document).ready(function() {
     });
 
     $('#open-button').click(function() {
-        dialog.showOpenDialog({
-            properties: ['openFile']
-        }).then(result => {
-            myConsole.log(result.canceled);
-            myConsole.log(result.filePaths);
-        }).catch(err => {
-            myConsole.log(err);
-        })
+        const reply = ipcRenderer.sendSync('open-presentation');
+        myConsole.log(reply);
     });
 });
