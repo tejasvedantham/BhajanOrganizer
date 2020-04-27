@@ -10,7 +10,7 @@ $(document).ready(function() {
     });
 
     $('#open-button').click(function() {
-        const reply = ipcRenderer.sendSync('open-presentation');
-        myConsole.log(reply);
+        const open_reply = ipcRenderer.sendSync('open-presentation');
+        myConsole.log(open_reply);
     });
 });

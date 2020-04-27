@@ -52,6 +52,11 @@ $(document).ready(function() {
         });
     });
 
+    $('#save-button').click(function() {
+        const save_reply = ipcRenderer.sendSync('save-presentation');
+        myConsole.log(save_reply);
+    })
+
     function objectifyForm(formArray) {
 
         var returnArray = {};

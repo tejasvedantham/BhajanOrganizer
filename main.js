@@ -26,8 +26,8 @@ function createWindow() {
 }
 
 function closeWindow() {
-    currPresDB.remove({}, { multi: true }, function (err, numRemoved) {
-    });
+    // currPresDB.remove({}, { multi: true }, function (err, numRemoved) {
+    // });
 }
 
 //Load db's from memory
@@ -90,6 +90,8 @@ ipcMain.on('add-bhajan-to-pres', function (event, data) {
 
 ipcMain.on('open-presentation', function(event, data) {
     dialog.showOpenDialog({
+        title: "Open Presentation",
+        buttonLabel: "Open Presentation",
         properties: ['openFile']
     }).then(result => {
         myConsole.log(result.canceled);
@@ -98,8 +100,22 @@ ipcMain.on('open-presentation', function(event, data) {
     }).catch(err => {
         myConsole.log(err);
         event.returnValue = "Failed!";
-    })
+    });
 })
+
+ipcMain.on('save-presentation', function(event, data) {
+    dialog.showSaveDialog({
+        title: "Save Presentation",
+        buttonLabel: "Save Presentation",
+        properties: ['createDirectory']
+    }).then(result => {
+        myConsole.log(result.filePath);
+        event.returnValue = "Saved!";
+        // fs.writeFile(result.filePath, JSON.stringify(currPresDB) , function(err) {
+        //     myConsole.log("Saved successfully to local!");
+        // })
+    });
+});
 
 app.on('ready', createWindow)
 app.on('quit', closeWindow);
