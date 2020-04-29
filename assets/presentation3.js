@@ -5,6 +5,7 @@ $(document).ready(function() {
 
     $('#generate-button').click(function() {
         myConsole.log("Generate button clicked");
+        ipcRenderer.send('generate-ppt');
     });
     $('#back-button').click(function() {
         $('#page-content').load("../html_pages/presentation2.html", function() {

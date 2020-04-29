@@ -11,6 +11,7 @@ const { app, BrowserWindow, ipcMain, dialog } = require('electron');
 const DataStore = require('nedb');
 var nodeConsole = require('console');
 var fs = require('fs');
+const pptxgen = require('pptxgenjs');
 var myConsole = new nodeConsole.Console(process.stdout, process.stderr);
 
 function createWindow() {
@@ -115,6 +116,28 @@ ipcMain.on('save-presentation', function(event, data) {
         //     myConsole.log("Saved successfully to local!");
         // })
     });
+});
+
+ipcMain.on('generate-ppt', function() {
+    var presentation = new pptxgen();
+
+    presentation.defineSlideMaster({
+        title: 'BHAJAN_SLIDE',
+        bkgd: 'f0f0f0',
+        objects: [
+            { 'placeholder': {
+
+            } }, 
+            { 'rect': {x:0.0, y:'90%', h:'10%', w:'100%', fill:'bcc3cc'} },
+            { 'text': {text: 'Current:', options: { x:'0.5%', y:'91%', color:'FFFFFF', fontSize:9, bold: true} } },
+            { 'text': {text: 'Next:', options: { x:'0.5%', y:'94%', color:'FFFFFF', fontSize:9, bold: true} } }
+        ],
+        slideNumber: {x:'97%', y:'94%', color:'FFFFFF', fontSize:9 }
+    });
+
+    var slide = presentation.addSlide('BHAJAN_SLIDE');
+    slide.addText('Example Text Here');
+    presentation.writeFile('ExamplePres.pptx');
 });
 
 app.on('ready', createWindow)
