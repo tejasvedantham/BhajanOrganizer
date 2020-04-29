@@ -126,17 +126,29 @@ ipcMain.on('generate-ppt', function() {
         bkgd: 'f0f0f0',
         objects: [
             { 'placeholder': {
-
+                options: { name: 'lyrics', type: 'body', x: '1%', y: '2%', w: '90%', h: '74%' },
+                text: 'Lyrics will go here'
             } }, 
+            { 'placeholder': {
+                options: { name: 'meaning', type: 'body', x: '1%', y: '77%', w: '90%', h: '12%', fontSize:12 },
+                text: 'Meaning will go here'
+            } },
+            { 'placeholder': {
+                options: { name: 'current', type: 'body', x: '6%', y: '91.3%', color:'FFFFFF', fontSize:9 },
+                text: 'Current bhajan will go here'
+            } },
+            { 'placeholder': {
+                options: { name: 'next', type: 'body', x: '6%', y: '94.5%', color:'FFFFFF', fontSize:9 },
+                text: 'Next bhajan will go here'
+            } },
             { 'rect': {x:0.0, y:'90%', h:'10%', w:'100%', fill:'bcc3cc'} },
             { 'text': {text: 'Current:', options: { x:'0.5%', y:'91%', color:'FFFFFF', fontSize:9, bold: true} } },
-            { 'text': {text: 'Next:', options: { x:'0.5%', y:'94%', color:'FFFFFF', fontSize:9, bold: true} } }
+            { 'text': {text: 'Next:', options: { x:'2%', y:'94%', color:'FFFFFF', fontSize:9, bold: true} } }
         ],
-        slideNumber: {x:'97%', y:'94%', color:'FFFFFF', fontSize:9 }
+        slideNumber: {x:'96%', y:'94%', color:'FFFFFF', fontSize:9 }
     });
 
     var slide = presentation.addSlide('BHAJAN_SLIDE');
-    slide.addText('Example Text Here');
     presentation.writeFile('ExamplePres.pptx');
 });
 
