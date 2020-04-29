@@ -18,6 +18,7 @@
     "fs": "0.0.1-security",
     "jquery": "^3.4.1",
     "nedb": "^1.8.0",
+    "pptxgenjs": "^3.1.1",
     "semantic-ui": "^2.4.2",
     "shell": "^0.5.0",
     "trim": "0.0.1",
