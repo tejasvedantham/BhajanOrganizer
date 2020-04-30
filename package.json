@@ -16,7 +16,7 @@
   "dependencies": {
     "console": "^0.7.2",
     "fs": "0.0.1-security",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "nedb": "^1.8.0",
     "pptxgenjs": "^3.1.1",
     "semantic-ui": "^2.4.2",
