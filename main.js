@@ -120,8 +120,16 @@ ipcMain.on('save-presentation', function(event, data) {
 
 ipcMain.on('generate-ppt', function() {
     var presentation = new pptxgen();
+    createBhajanMasterSlide(presentation);
 
-    presentation.defineSlideMaster({
+    createTableSlide(presentation);
+    var slide1 = presentation.addSlide('BHAJAN_SLIDE');
+
+    presentation.writeFile('ExamplePres.pptx');
+});
+
+function createBhajanMasterSlide(pres) {
+    pres.defineSlideMaster({
         title: 'BHAJAN_SLIDE',
         bkgd: 'f0f0f0',
         objects: [
@@ -147,10 +155,39 @@ ipcMain.on('generate-ppt', function() {
         ],
         slideNumber: {x:'96%', y:'94%', color:'FFFFFF', fontSize:9 }
     });
+}
 
-    var slide = presentation.addSlide('BHAJAN_SLIDE');
-    presentation.writeFile('ExamplePres.pptx');
-});
+function createTableSlide(pres) {
+    var slide2 = pres.addSlide();
+    var rows = [[
+        {
+            text: "Bhajan",
+            options: {colspan: 5, bold: true }
+        },
+        {
+            text: "Singer",
+            options: {colspan: 3, bold: true }
+        },
+        {
+            text: "Scale",
+            options: {colspan: 2, bold: true }
+        }
+    ]];
+    rows.push([
+        { text: "Sample Bhajan", options: {colspan: 5} },
+        { text: "Sample Singer", options: {colspan: 3} },
+        { text: "Sample Scale", options: {colspan: 2} }
+    ]);
+    var tabOpts = {
+        x: "1%",
+        y: "2%",
+        w: "98%",
+        fill: "f7f7f7",
+        fontSize: 13,
+        border: { pt: 0.4 }
+    };
+    slide2.addTable(rows, tabOpts);
+}
 
 app.on('ready', createWindow)
 app.on('quit', closeWindow);
