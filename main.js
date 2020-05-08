@@ -112,19 +112,45 @@ ipcMain.on('save-presentation', function(event, data) {
     }).then(result => {
         myConsole.log(result.filePath);
         event.returnValue = "Saved!";
-        // fs.writeFile(result.filePath, JSON.stringify(currPresDB) , function(err) {
-        //     myConsole.log("Saved successfully to local!");
-        // })
     });
 });
 
-ipcMain.on('generate-ppt', function() {
+ipcMain.on('get-table-info', function(event, data) {
+    var rows = [[
+        { text: "Bhajan", options: {colspan: 5, bold: true } },
+        { text: "Singer", options: {colspan: 3, bold: true } },
+        { text: "Scale", options: {colspan: 2, bold: true } }
+    ]];
+    currPresDB.find({}, function(err, docs) {
+        docs.forEach((element, index, array) => {
+            rows.push([
+                { text: element.bhajanfield, options: {colspan: 5} },
+                { text: element.singersfield, options: {colspan: 3} },
+                { text: element.scalefield + " " + element.scaletypefield, options: {colspan: 2} }
+            ]);
+        });
+        event.returnValue = rows;
+    });
+});
+
+ipcMain.on('get-bhajan-for-pres', function(event, data) {
+    bhajansDB.find({ _id: data}, function(err, docs) {
+        event.returnValue = docs;
+    });
+});
+
+ipcMain.on('generate-ppt', function(event, data) {
     var presentation = new pptxgen();
+    var num_bhajans = data[0].length - 1;
     createBhajanMasterSlide(presentation);
+    createTableSlide(presentation, data[0]);
 
-    createTableSlide(presentation);
-    var slide1 = presentation.addSlide('BHAJAN_SLIDE');
-
+    for (var i = 0; i < data[1].length; i++) {
+        var slide = presentation.addSlide('BHAJAN_SLIDE');
+        slide.addText(data[1][i][0].lyrics, { placeholder: 'lyrics'} );
+        slide.addText(data[1][i][0].meaning, { placeholder: 'meaning'} );
+    }
+    
     presentation.writeFile('ExamplePres.pptx');
 });
 
@@ -157,37 +183,19 @@ function createBhajanMasterSlide(pres) {
     });
 }
 
-function createTableSlide(pres) {
-    var slide2 = pres.addSlide();
-    var rows = [[
-        {
-            text: "Bhajan",
-            options: {colspan: 5, bold: true }
-        },
-        {
-            text: "Singer",
-            options: {colspan: 3, bold: true }
-        },
-        {
-            text: "Scale",
-            options: {colspan: 2, bold: true }
-        }
-    ]];
-    rows.push([
-        { text: "Sample Bhajan", options: {colspan: 5} },
-        { text: "Sample Singer", options: {colspan: 3} },
-        { text: "Sample Scale", options: {colspan: 2} }
-    ]);
+function createTableSlide(pres, rows) {
     var tabOpts = {
         x: "1%",
         y: "2%",
         w: "98%",
         fill: "f7f7f7",
-        fontSize: 13,
+        fontSize: 12,
+        fontFace: "Arial",
         border: { pt: 0.4 }
     };
-    slide2.addTable(rows, tabOpts);
+    var slide1 = pres.addSlide();
+    slide1.addTable(rows, tabOpts);
 }
 
 app.on('ready', createWindow)
-app.on('quit', closeWindow);
+app.on('quit', closeWindow)
