@@ -21,7 +21,7 @@
     "pptxgenjs": "^3.1.1",
     "semantic-ui": "^2.4.2",
     "shell": "^0.5.0",
-    "trim": "0.0.1",
+    "trim": "0.0.3",
     "website-to-json": "^1.0.22"
   }
 }
